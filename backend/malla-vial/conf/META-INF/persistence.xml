@@ -1,0 +1,31 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="defaultPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Clases de entidades -->
+        <class>models.Segmento</class>
+        <class>models.Calzada</class>
+        <class>models.Bordillo</class>
+
+        <!-- Configuración de la base de datos -->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/malla_vial_db"/>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="Andy9896"/>
+
+            <!-- Dialecto de PostgreSQL para Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Configuración para manejo de la conexión -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Puedes usar "validate" en producción -->
+
+            <!-- Mostrar y formatear consultas SQL -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Configuración de logs para debugging -->
+            <property name="hibernate.use_sql_comments" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
